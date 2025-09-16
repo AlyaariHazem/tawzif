@@ -1,59 +1,95 @@
 # Tawzif
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.0.
+**Tawzif** is the host Angular application for integrating multiple microfrontends using **Webpack Module Federation**.  
+It is built with [Angular CLI](https://github.com/angular/angular-cli) **v20.0.0** and serves as the entry point for loading remotes such as `companies`, `jobs`, and `jobseeker`.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Development server
+
+To start a local development server:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Once the server is running, open your browser and navigate to [http://localhost:4200/](http://localhost:4200/).  
+The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🛠️ Code scaffolding
+
+Generate a new component with:
 
 ```bash
 ng generate component component-name
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+For a complete list of schematics (components, directives, pipes, etc.):
 
 ```bash
 ng generate --help
 ```
 
-## Building
+---
 
-To build the project run:
+## 📦 Building
+
+To build the project:
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+The build artifacts will be stored in the `dist/` directory.  
+By default, the build is optimized for performance and speed.
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## 🧪 Running unit tests
+
+Run unit tests with [Karma](https://karma-runner.github.io):
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## 🌐 Running end-to-end tests
+
+For e2e tests, run:
 
 ```bash
 ng e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+> Note: Angular CLI does not include an e2e framework by default. You can integrate **Cypress** or **Playwright** for this purpose.
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 🔗 Module Federation Setup
+
+Tawzif is configured as a **host shell** that dynamically loads microfrontends:
+
+- **Host name:** `tawzif`  
+- **Port:** `4200`  
+- **Remotes:**  
+  - `companies` → `http://localhost:4300/remoteEntry.js`  
+  - `jobs` → `http://localhost:4400/remoteEntry.js`  
+  - `jobseeker` → `http://localhost:4500/remoteEntry.js`
+
+Update your `webpack.config.js` (or `webpack.prod.config.js`) to register new remotes as needed.
+
+---
+
+## 📚 Additional Resources
+
+- [Angular CLI Documentation](https://angular.dev/tools/cli)  
+- [Module Federation Plugin](https://webpack.js.org/concepts/module-federation/)  
+- [Angular Architects Guide](https://www.angulararchitects.io/en/guide/module-federation/)  
+
+---
+
+⚡ **Tawzif acts as the glue** between all microfrontends, providing routing, authentication, and shared services.  
