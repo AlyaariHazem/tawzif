@@ -3,6 +3,7 @@ import { loadRemoteModule } from '@angular-architects/module-federation';
 import { REMOTE_ENTRY } from '../remotes';
 import { mfQuery } from '../mf-url';
 
+
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'companies' },
 
@@ -20,7 +21,7 @@ export const routes: Routes = [
          return RemoteErrorModule;
        }),
   },
-
+  
   {
     path: 'jobs',
     loadChildren: () =>
