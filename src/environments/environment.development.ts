@@ -16,3 +16,13 @@ export function getBaseDomain():string{
       return 'alyaarihazem.github.io/Hire-Me';
     }
   }
+
+export function getTenantFromSubdomain(): string{
+      const host = window.location.origin.split('://')[1];
+      const subdomainList = host.split('.');
+      if (subdomainList.length > 1) {
+        return subdomainList[0];
+      }else{
+        return environment.defaultTenant;
+      }
+  }
