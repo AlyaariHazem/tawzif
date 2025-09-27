@@ -3,7 +3,7 @@ import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest
 import { catchError, Observable, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 
-import { environment, getBaseDomain, getTenantFromSubdomain } from '../../environments/environment.development';
+import { environment, getBaseDomain, getTenantFromSubdomain } from '../../../environments/environment.development';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor

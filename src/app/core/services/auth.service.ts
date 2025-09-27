@@ -5,7 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 // Import the environment that Angular swaps per configuration
 // (use environment.ts; Angular will replace it with environment.development.ts in dev, etc.)
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment.development';
 import { UserInfo } from '../modules/user-info.model';
 
 @Injectable({ providedIn: 'root' })
