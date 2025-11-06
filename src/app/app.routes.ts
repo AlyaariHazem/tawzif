@@ -1,46 +1,34 @@
+// app.routes.ts
 import { Routes } from '@angular/router';
-import { loadRemoteModule } from '@angular-architects/module-federation';
-import { REMOTE_ENTRY } from '../remotes';
-import { mfQuery } from '../mf-url';
-
+// import { LandingLayoutComponent } from './layout/landing-layout/landing-layout.component';
+import { shellRoutes } from './shell-routes';
 
 export const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'companies' },
+  // 1) land on Home
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 
+  // 2) Home page (your landing)
   {
-    path: 'companies',
-    loadChildren: () =>
-      loadRemoteModule({
-        type: 'module',
-        remoteEntry: REMOTE_ENTRY.companies + mfQuery('1.0.0'),
-        exposedModule: './Routes',                 // must match the remote's exposes key
-      }).then(m => m.remoteRoutes)
-       .catch(async err => {
-         console.error(err);
-         const { RemoteErrorModule } = await import('./error-remote.module');
-         return RemoteErrorModule;
-       }),
-  },
-  
-  {
-    path: 'jobs',
-    loadChildren: () =>
-      loadRemoteModule({
-        type: 'module',
-        remoteEntry: REMOTE_ENTRY.jobs + mfQuery('1.0.0'),
-        exposedModule: './Routes',
-      }).then(m => m.remoteRoutes),
+    path: 'home',
+    // component: LandingLayoutComponent,
+    data: { withPrimeFlex: true },
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./main/main.module').then(m => m.MainModule),
+      },
+    ],
   },
 
-  {
-    path: 'jobseeker',
-    loadChildren: () =>
-      loadRemoteModule({
-        type: 'module',
-        remoteEntry: REMOTE_ENTRY.jobseeker + mfQuery('1.0.0'),
-        exposedModule: './Routes',
-      }).then(m => m.remoteRoutes),
-  },
+  // 3) Remote feature shells (companies/jobs/jobseeker)
+  ...shellRoutes,
 
-  { path: '**', redirectTo: 'companies' },
+  // 4) other pages
+  { path: 'login', loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule) },
+  { path: 'error-404', loadChildren: () => import('./pages/error/error-404/error-404.module').then(m => m.Error404Module) },
+  { path: 'error-500', loadChildren: () => import('./pages/error/error-500/error-500.module').then(m => m.Error500Module) },
+
+  // 5) fallback
+  { path: '**', redirectTo: 'home' },
 ];

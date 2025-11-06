@@ -1,0 +1,22 @@
+<div>
+  <h1>Welcome to the Home Page</h1>
+  <p>This is the main landing page of the application.</p>
+  <!-- make card for companies and jobs and jobseeker and when I clikc on any of them call the remote module -->
+   <div class="card">
+    <h2>Companies</h2>
+    <p>Click here to view companies</p>
+    <!-- main.component.html -->
+  <a [routerLink]="['/companies','modules']" routerLinkActive="active">View Companies</a>
+
+  </div>
+  <div class="card">
+    <h2>Jobs</h2>
+    <p>Click here to view jobs</p>
+    <a routerLink="/jobs">View Jobs</a>
+  </div>
+  <div class="card">
+    <h2>Jobseeker</h2>
+    <p>Click here to view jobseeker</p>
+    <a routerLink="/jobseeker">View Jobseeker</a>
+  </div>
+</div>

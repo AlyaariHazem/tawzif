@@ -1,0 +1,57 @@
+<!-- <div class="relative flex flex-column justify-content-center">
+  <div class="bg-circle opacity-50" style="position: fixed !important;top: 30px; left: -700px;"></div>
+  <div class="bg-circle hidden lg:flex" style="top: 50px; right:-800px; transform: rotate(60deg);position: fixed !important;"></div>
+  <div
+      class="z-5 flex align-items-center justify-content-between relative lg:sticky lg:top-0 py-6 px-4 mx-0 md:px-7 lg:px-8 lg:py-0 lg:mx-0" style="background: #eff0f6 !important;">
+      <a class="cursor-pointer mt-2" (click)="router.navigate(['/landing'])">
+          <img src="{{logoPath}}" style="width: 150px;height: 40px;">
+      </a>
+      <a pRipple class="cursor-pointer block md:hidden text-700 text-primary">
+          <i class="pi pi-bars text-4xl"></i>
+      </a>
+      <ul #menu  style="top:80px; right: 0%;" *ngIf="showNav"
+          class="list-none  p-3 m-2 md:p-0  justify-content-end md:flex absolute md:static w-full md:w-6 md:px-0 z-3 shadow-2 md:shadow-none">
+          <a pRipple class="cursor-pointer block md:hidden text-700 text-primary absolute z-5" style="top:1.5rem;
+          right: 1.5rem;" pRipple>
+              <i class="pi pi-times text-3xl"></i>
+          </a>
+
+          <li class=" md:mt-0">
+              <a (click)="router.navigate(['/landing'], {fragment: 'home'})" pRipple
+                  class="flex m-0 md:ml-5 px-0 py-3 text-900 font-medium line-height-3 cursor-pointer">
+                  <span>Home</span>
+              </a>
+          </li>
+          <li>
+              <a (click)="router.navigate(['/landing'], {fragment: 'apps'})" pRipple
+                  class="flex m-0 md:ml-5 px-0 py-3 text-900 font-medium line-height-3 cursor-pointer">
+                  <span>Apps</span>
+              </a>
+          </li>
+          <li>
+              <a (click)="router.navigate(['/landing'], {fragment: 'features'})" pRipple
+                  class="flex m-0 md:ml-5 px-0 py-3 text-900 font-medium line-height-3 cursor-pointer">
+                  <span>Features</span>
+              </a>
+          </li>
+          <li>
+              <a (click)="router.navigate(['/landing'], {fragment: 'pricing'})" pRipple
+                  class="flex m-0 md:ml-5 px-0 py-3 text-900 font-medium line-height-3 cursor-pointer">
+                  <span>Pricing</span>
+              </a>
+          </li>
+
+          <li class="flex align-items-center">
+            <button pButton pRipple type="button" label="Sign in"
+                class="m-0 mt-3 md:mt-0 md:ml-5 white-space-nowrap p-button-outlined p-button-success" (click)="router.navigate(['/'],{queryParams:{url: 'sign-in'}})"></button>
+
+          </li>
+      </ul>
+
+  </div>
+  <div class="landing-wrapper">
+      <div [class]="showNav?'py-4 px-4 mx-0 md:mx-6 lg:mx-8 lg:px-8 z-2':'py-2 z-2'">
+          <router-outlet></router-outlet>
+      </div>
+  </div>
+</div> -->
